@@ -4,14 +4,19 @@ import com.example.preparcialayd.model.external.CryptoExternalStorage
 import android.content.SharedPreferences
 import androidx.core.content.edit
 
-class CryptoRepositoryImpl(private val sharedPreferences : SharedPreferences) : CryptoRepository{
+class CryptoRepositoryImpl(
+    private val sharedPreferences : SharedPreferences
+    //private val localData : LocalData nos falto
+    //private val externalData : ExternalData nos falto
+
+) : CryptoRepository{
     override fun fetchPrice(symbol: String): Double {
         val savedValue = sharedPreferences.getString(symbol, null)
 
         return if(savedValue != null) {
-            getValueFromLocalStorage(savedValue)
+            getValueFromLocalStorage(savedValue) //esto est bien modulizar
         } else {
-            getValueFromExternalStorage(symbol)
+            getValueFromExternalStorage(symbol) //esto est bien es modulizar
         }
     }
 
@@ -29,3 +34,16 @@ class CryptoRepositoryImpl(private val sharedPreferences : SharedPreferences) : 
         }
     }
 }
+
+/*
+* la api x no se usa
+*
+* con la otra apí hago
+* interface local data{
+*   fun getData(): Double
+* }
+*
+* interface externalData{
+*   fun getData(): Double
+* }
+* */

@@ -15,7 +15,7 @@ interface MainScreen {
 
 }
 
-private val currencies = listOf("USD", "EUR", "CAD", "JPY", "RUB", "GBP", "KRW", "PLN")
+private val currencies = listOf("USD", "EUR", "CAD", "JPY", "RUB", "GBP", "KRW", "PLN") //esto viola open close, no tendria que estar aca puede estar en presenter o en repository(?)
 
 class MainScreenImpl : AppCompatActivity(), MainScreen {
     private lateinit var presenter: Presenter
@@ -69,3 +69,4 @@ class MainScreenImpl : AppCompatActivity(), MainScreen {
         }
     }
 }
+

@@ -19,4 +19,5 @@ object PresenterInyector {
         return presenter
     }
 
+    //pasar el contexto por todos los inyectores esta mal, es mejor usar un solo inyector
 }
